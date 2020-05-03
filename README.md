@@ -1,9 +1,10 @@
 # venvwrap
-A collection of bash functions for simple venv(python) mangement. 
+A collection of bash functions for python venv mangement. 
 
 ## Install
+![](https://github.com/hunkeydee/venvwrap/blob/master/install.svg)
 
-![https://asciinema.org/a/326330](https://github.com/hunkeydee/venvwrap/blob/master/install.svg)
+https://asciinema.org/a/326330
 
 ## Aciicasts
 - [basic create, pip-install, use, destroy](https://asciinema.org/a/326317)
