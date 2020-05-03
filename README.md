@@ -14,7 +14,7 @@ via github
 ```
 git clone https://github.com/hunkeydee/venvwrap
 sha256sum -c venvwrap/sha256
-source venvwrap/venvwrap
+source venvwrap/venvwrap.sh
 ```
 
 ## Asciicast Demos
