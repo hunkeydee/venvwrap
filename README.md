@@ -1,16 +1,17 @@
 # venvwrap
-A collection of bash functions for python venv mangement. 
+A collection of bash functions for python venv mangement
 
 ## Install
-![](https://github.com/hunkeydee/venvwrap/blob/master/install.gif)
+<a href="https://asciinema.org/a/326330
+" target="_blank"><img src="https://github.com/hunkeydee/venvwrap/blob/master/install.gif" 
+alt="install venvwrap" width="590" height="348" border="10" /></a>
 
-https://asciinema.org/a/326330
-
-## Aciicasts
+## Asciicast Demos
 - [basic create, pip-install, use, destroy](https://asciinema.org/a/326317)
-- [multiple venv mangement](https://asciinema.org/a/326318)
-- [link packages between venvs](https://asciinema.org/a/326319)
 - [create venvs from varied python versions](https://asciinema.org/a/326320)
+- [link packages between venvs](https://asciinema.org/a/326319)
+
+---
 
 ## Usage
 **venvmk** - Create venv(s), installs pip, wheel, setuptools
@@ -19,6 +20,7 @@ usage: venvmk <venv>...
 
   ex: `venvmk alpha` -> creates a venv called 'alpha'
   ex: `venvmk bravo charlie` -> creates two seperate venvs
+  ex: `venvmk delta -p /opt/bin/python3.6\` -> create venv using alt python
 ```
 **venvrm** - Delete venv(s)
 ```
@@ -45,38 +47,38 @@ usage: venvrm <venv>...
   
   ex `venvls` -> returns a dir listing of $VENV_HOME
 ```
-**venvpy** - Run python command in <venv>
+**venvpy** - Run python command in venv
 ```
   usage: venvpy <venv> <python cmd>
 
   ex: `venvpy hotel --version` -> returns python version for venv 'hotel'
 ```
-**venvpip** - Run a pip command in <venv>
+**venvpip** - Run a pip command in venv
 ```
   usage: venvpip <venv> <pip cmd>
 
   ex: `venvpip india show numpy` -> returns numpy details from venv 'india'
 ```
-**venvpkgls** - List packages installed or linked in <venv>(s)
+**venvpkgls** - List packages installed or linked in venv(s)
 ```
   usage: venvpkgls <venv>...
 
   ex: `venpkgls juliet` -> runs pip list for 'juliet', then displays link in the site-packages directory
 ```
-**venvcmd** - Run <cmd> in <venv>
+**venvcmd** - Run cmd in venv
 ```
   usage: venvcmd <venv> <cmd>
   
   ex: `venvcmd kilo python3 ./server.py` -> runs server.py in 'kilo' venv
 ```
-**venvinstall** - Install pip package(s) in <venv>
+**venvinstall** - Install pip package(s) in venv
 ```
   usage: venvinstall <venv> <pkg>...'
 
   ex: `venvinstall mike urllib3` -> installs urllib3 in 'mike'
   ex: `venvinstall november numpy chardet` -> installs numpy and chardet
 ```
-**venvlink** - link a package from <source_venv> to <target_venv>
+**venvlink** - link a package from  source venv> to target venv
 ```
   usage: venvlink <source_venv> <source_pkg> <target_venv>
 
@@ -84,17 +86,15 @@ usage: venvrm <venv>...
 ```
 
 ## Background
-I didn't know enough about venvs or bash functions, so this was a weekend project inspired by [virtualenvwrapper](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtual-env, these functions support the built in python venv.
+I didn't know enough about venvs or bash functions, so I spent a weekend learning/making this project.  Its generally inspired by [`virtualenvwrapper`](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtualenv, these functions support the built-in python `venv`.  I think you can use virtualenvwrapper to wrap venvs since they're almost equivilent, but just using someone elses code means I learn less.
 
-No effort was made to make this portable.  It works on Debian Buster.  Some dependencies include
+No effort was made to make these functions portable.  *It works for me* on Debian Buster x86_64.  I used `python3.7.3` from debian apt packages.  `python3.6.10`, `python3.7.7`, and `python3.8.3` were later compiled and successfully tested with venvwrap on the same system. `python2` has been completely ignored since it's EOL.   
 
-- python3
-- python3-venv
-- python3-pip
+Some dependencies include:
 
-- bash
-- rm
-- pushd/popd
-- ln
-- grep
-- cut
+| python         | other cmds       |
+|----------------|------------------|
+| `python3`      | `bash`           |
+| `python3-venv` | `rm ln cut grep` |
+| `python3-pip`  | `pushd popd`     |
+
