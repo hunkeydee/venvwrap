@@ -2,7 +2,14 @@
 A collection of bash functions for simple venv(python) mangement. 
 
 ## Install
-[![demo](https://asciinma.org/a/326321.svg)](https://asciinema.org/a/326321?autoplay=1)
+
+![https://asciinema.org/a/326330](https://github.com/hunkeydee/venvwrap/blob/master/install.svg)
+
+## Aciicasts
+- [basic create, pip-install, use, destroy](https://asciinema.org/a/326317)
+- [multiple venv mangement](https://asciinema.org/a/326318)
+- [link packages between venvs](https://asciinema.org/a/326319)
+- [create venvs from varied python versions](https://asciinema.org/a/326320)
 
 ## Usage
 venvmk 
@@ -98,7 +105,7 @@ venvlink
 ```
 
 ## Background
-I didn't know enough about venvs or bash functions, so this was a weekend project inspired by virtualenvwrapper.  Instead of wrapping virtual-env, these functions support the built in python venv.
+I didn't know enough about venvs or bash functions, so this was a weekend project inspired by [virtualenvwrapper](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtual-env, these functions support the built in python venv.
 
 No effort was made to make this portable.  It works on Debian Buster.  Some dependencies include
 
