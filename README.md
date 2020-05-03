@@ -2,7 +2,7 @@
 A collection of bash functions for python venv mangement. 
 
 ## Install
-![](https://github.com/hunkeydee/venvwrap/blob/master/install.svg)
+![](https://github.com/hunkeydee/venvwrap/blob/master/install.gif)
 
 https://asciinema.org/a/326330
 
