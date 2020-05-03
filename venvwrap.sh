@@ -90,11 +90,14 @@ function workon {
   ex: \`workon golf\` -> activates the 'golf' venv context"
     if ! _help "$@"; then
         if _is_venv "$1"; then
-        local succ=" [+] activated '$1'"
-        local fail=" [-] unable to activate '$1'"
+	    if [[ -n "$VIRTUAL_ENV" ]]; then
+                popd 1>/dev/null || return
+	    fi
+            local succ=" [+] activated '$1'"
+            local fail=" [-] unable to activate '$1'"
             source "${VENV_HOME}"/"$1"/bin/activate &&
             echo "$succ" || echo "$fail"
-            pushd "${VENV_HOME}"/"$venv" 1>/dev/null || return
+            pushd "${VENV_HOME}"/"$1" 1>/dev/null || return
         else
             echo "     Maybe try one of these:"
             venvls
