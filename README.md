@@ -2,7 +2,7 @@
 A collection of bash functions for simple venv(python) mangement. 
 
 ## Install
-[![demo] (https://asciinma.org/a/326321.svg)](https://asciinema.org/a/326321?autoplay=1)
+[![demo](https://asciinma.org/a/326321.svg)](https://asciinema.org/a/326321?autoplay=1)
 
 ## Usage
 venvmk 
