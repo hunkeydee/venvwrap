@@ -2,9 +2,20 @@
 A collection of bash functions for python venv mangement
 
 ## Install
-<a href="https://asciinema.org/a/326330
-" target="_blank"><img src="https://github.com/hunkeydee/venvwrap/blob/master/install.gif" 
-alt="install venvwrap" width="590" height="348" border="10" /></a>
+via pip
+
+```
+pip install venvwrap
+source bin/venvwrap.sh
+```
+
+via github
+
+```
+git clone https://github.com/hunkeydee/venvwrap
+sha256sum -c venvwrap/sha256
+source venvwrap/venvwrap
+```
 
 ## Asciicast Demos
 - [basic create, pip-install, use, destroy](https://asciinema.org/a/326317)
@@ -92,9 +103,9 @@ No effort was made to make these functions portable.  *It works for me* on Debia
 
 Some dependencies include:
 
-| python         | other cmds       |
-|----------------|------------------|
-| `python3`      | `bash`           |
-| `python3-venv` | `rm ln cut grep` |
-| `python3-pip`  | `pushd popd`     |
+| python         | other cmds            |
+|----------------|-----------------------|
+| `python3`      | `bash`                |
+| `python3-venv` | `rm` `ln` `cut` `grep`|
+| `python3-pip`  | `pushd` `popd`        |
 
