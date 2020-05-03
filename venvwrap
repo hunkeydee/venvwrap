@@ -13,10 +13,11 @@ fi
 function venvmk {
     local help="  Create venv(s), installs pip, wheel, setuptools
 
-  usage: venvmk <venv>...
+  usage: venvmk [-p|--python PATH] <venv>...
 
   ex: \`venvmk alpha\` -> creates a venv called 'alpha'
-  ex: \`venvmk bravo charlie\` -> creates two seperate venvs"
+  ex: \`venvmk bravo charlie\` -> creates two seperate venvs
+  ex: \`venvmk delta -p /opt/bin/python3.6\` ->  create venv using alternate python"
     if ! _help "$@"; then
         local venvs=()
         while [[ $# -gt 0 ]]; do
