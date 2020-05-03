@@ -250,9 +250,6 @@ function _is_venv {
     fi
 }
 
-git clone https://github.com/hunkeydee/venvwrap
-source venvwrap/venvwrap
-
 function _get_pkg_dir {
     venvpip "$1" show "$2" | grep 'Location: ' | cut -d' ' -f2-
 }
