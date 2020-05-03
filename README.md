@@ -24,6 +24,17 @@ source venvwrap/venvwrap.sh
 
 ---
 
+## Bash Environment and File System effects
+- The script exports the following variables and default values.  Change them as needed before installation.
+
+  - `VENV_HOME="${HOME}"/.venvs` -> Default folder for venv directories
+
+  - `VENV_PY=$(which python3)` -> Default python installation
+
+- If `$VENV_HOME` does not already exist on the file system, this script will create it.
+
+- All venvwrap commands are bash functions, with a small reliance on common linux binaries such as `rm`, `ln`, `grep`, `cut`, `popd` and `pushd`
+
 ## Usage
 **venvmk** - Create venv(s), installs pip, wheel, setuptools
 ```
@@ -97,7 +108,7 @@ usage: venvrm <venv>...
 ```
 
 ## Background
-I didn't know enough about venvs or bash functions, so I spent a weekend learning/making this project.  Its generally inspired by [`virtualenvwrapper`](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtualenv, these functions support the built-in python `venv`.  I think you can use virtualenvwrapper to wrap venvs since they're almost equivilent, but just using someone elses code means I learn less.
+I didn't know enough about venvs (or bash functions), so I spent a weekend learning/making this project.  Its generally inspired by [`virtualenvwrapper`](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtualenv, these functions support the built-in python `venv`.  *I think you can use virtualenvwrapper to wrap venvs since they're almost equivilent, but just using someone elses code means I learn less.*
 
 No effort was made to make these functions portable.  *It works for me* on Debian Buster x86_64.  I used `python3.7.3` from debian apt packages.  `python3.6.10`, `python3.7.7`, and `python3.8.3` were later compiled and successfully tested with venvwrap on the same system. `python2` has been completely ignored since it's EOL.   
 
@@ -108,4 +119,3 @@ Some dependencies include:
 | `python3`      | `bash`                |
 | `python3-venv` | `rm` `ln` `cut` `grep`|
 | `python3-pip`  | `pushd` `popd`        |
-
