@@ -5,7 +5,7 @@ with open("README.md", 'r') as fh:
 
 setuptools.setup(
         name="venvwrap",
-        version="0.1b1",
+        version="0.1",
         author="hunkeydee",
         author_email="redacted@unknown.invalid",
         description="A collection of bash functions for venv management",
