@@ -31,9 +31,9 @@ source venvwrap/venvwrap.sh
 
   - `VENV_PY=$(which python3)` -> Default python installation
 
-- If `$VENV_HOME` does not already exist on the file system, this script will create it.
+- If the `$VENV_HOME` directory does not already exist on the file system, this script will create it.
 
-- All venvwrap commands are bash functions, with a small reliance on common linux binaries such as `rm`, `ln`, `grep`, `cut`, `popd` and `pushd`
+- All venvwrap commands are bash functions, with a small reliance on common linux binaries such as `rm`, `ln`, `popd`, and `pushd`.
 
 ## Usage
 **venvmk** - Create venv(s), installs pip, wheel, setuptools
@@ -48,8 +48,8 @@ usage: venvmk <venv>...
 ```
 usage: venvrm <venv>...
 
-  ex: `venrm delta` -> deletes the venv called 'delta'
-  ex: `venrm echo foxtrot` deletes two venvs
+  ex: `venvrm delta` -> deletes the venv called 'delta'
+  ex: `venvrm echo foxtrot` deletes two venvs
 ```
 **workon** - Enter/activate a venv
 ```
@@ -69,23 +69,11 @@ usage: venvrm <venv>...
   
   ex `venvls` -> returns a dir listing of $VENV_HOME
 ```
-**venvpy** - Run python command in venv
-```
-  usage: venvpy <venv> <python cmd>
-
-  ex: `venvpy hotel --version` -> returns python version for venv 'hotel'
-```
-**venvpip** - Run a pip command in venv
-```
-  usage: venvpip <venv> <pip cmd>
-
-  ex: `venvpip india show numpy` -> returns numpy details from venv 'india'
-```
 **venvpkgls** - List packages installed or linked in venv(s)
 ```
   usage: venvpkgls <venv>...
 
-  ex: `venpkgls juliet` -> runs pip list for 'juliet', then displays link in the site-packages directory
+  ex: `venvpkgls juliet` -> runs pip list for 'juliet', then displays link in the site-packages directory
 ```
 **venvcmd** - Run cmd in venv
 ```
@@ -108,14 +96,14 @@ usage: venvrm <venv>...
 ```
 
 ## Background
-I didn't know enough about venvs (or bash functions), so I spent a weekend learning/making this project.  Its generally inspired by [`virtualenvwrapper`](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtualenv, these functions support the built-in python `venv`.  *I think you can use virtualenvwrapper to wrap venvs since they're almost equivilent, but just using someone elses code means I learn less.*
+I didn't know enough about venvs (or bash scripting), so I spent a weekend learning/making this project.  Its generally inspired by [`virtualenvwrapper`](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtualenv, these functions support the built-in python `venv`.  *I think you can use virtualenvwrapper to wrap venvs since they're almost equivilent, but just using someone elses code means I learn less.*
 
-No effort was made to make these functions portable.  *It works for me* on Debian Buster x86_64.  I used `python3.7.3` from debian apt packages.  `python3.6.10`, `python3.7.7`, and `python3.8.3` were later compiled and successfully tested with venvwrap on the same system. `python2` has been completely ignored since it's EOL.   
+Very little effort was put into testing this against other systems.  *It works for me* with GNU bash, version 5.0.3(1)-release (x86_64-pc-linux-gnu) running on Debian Buster as well as Windows 10 wsl.  I tested python mangement with `python3.7.3` directly from debian apt packages, as well as `python3.6.10`, `python3.7.7`, and `python3.8.3` compiled directly from python.org.  All currently supported versions of python (May 2020) tested successful.
 
 Some dependencies include:
 
-| python         | other cmds            |
-|----------------|-----------------------|
-| `python3`      | `bash`                |
-| `python3-venv` | `rm` `ln` `cut` `grep`|
-| `python3-pip`  | `pushd` `popd`        |
+| python         | other cmds     |
+|----------------|----------------|
+| `python3`      | `bash`         |
+| `python3-venv` | `rm` `ln`      |
+| `python3-pip`  | `pushd` `popd` |
