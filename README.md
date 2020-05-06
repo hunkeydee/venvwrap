@@ -33,7 +33,7 @@ source venvwrap/venvwrap.sh
 
 - If the `$VENV_HOME` directory does not already exist on the file system, this script will create it.
 
-- All venvwrap commands are bash functions, with a small reliance on common linux binaries such as `rm`, `ln`, `popd`, and `pushd`.
+- All venvwrap commands are bash functions, with a small reliance on common binaries (`rm` and `ln`).
 
 ## Usage
 **venvmk** - Create venv(s), installs pip, wheel, setuptools
@@ -78,8 +78,8 @@ usage: venvrm <venv>...
 **venvcmd** - Run cmd in venv
 ```
   usage: venvcmd <venv> <cmd>
-  
-  ex: `venvcmd kilo python3 ./server.py` -> runs server.py in 'kilo' venv
+
+  ex: `venvcmd kilo python3 ./server.py` -> runs server.py in 'kilo' venv.  note that in this case ./server.py would need to be placed at ~/.venvs/kilo/server.py.
 ```
 **venvinstall** - Install pip package(s) in venv
 ```
@@ -98,7 +98,9 @@ usage: venvrm <venv>...
 ## Background
 I didn't know enough about venvs (or bash scripting), so I spent a weekend learning/making this project.  Its generally inspired by [`virtualenvwrapper`](https://pypi.org/project/virtualenvwrapper/).  Instead of wrapping virtualenv, these functions support the built-in python `venv`.  *I think you can use virtualenvwrapper to wrap venvs since they're almost equivilent, but just using someone elses code means I learn less.*
 
-Very little effort was put into testing this against other systems.  *It works for me* with GNU bash, version 5.0.3(1)-release (x86_64-pc-linux-gnu) running on Debian Buster as well as Windows 10 wsl.  I tested python mangement with `python3.7.3` directly from debian apt packages, as well as `python3.6.10`, `python3.7.7`, and `python3.8.3` compiled directly from python.org.  All currently supported versions of python (May 2020) tested successful.
+The main feature I wanted to add while making this script was to have the ability to link packages between virtual environments.  Imagine you have a need to setup three seperate venvs, but they all need the same numpy`.  You could install `numpy` in all three, but that wastes time, filespace and bandwidth.  `venvlink` works around this by placing link files in the site-packages dir to the installed packages of other venvs.  For example, `venvlink alpha numpy bravo` would take the `numpy` package already installed in `alpha`, and make a link file to it within `bravo`'s site-packages.  This lets me set up a flexible development environment without duplicating lots of files.
+
+Very little effort was put into testing against other linux systems.  *It works for me* with bash 5.0.3 running on Debian Buster as well as Windows 10 wsl.  I tested python mangement with `python3.7.3` directly from debian apt packages, as well as `python3.6.10`, `python3.7.7`, and `python3.8.3` compiled directly from python.org.  All currently supported versions of python (May 2020) tested successful.
 
 Some dependencies include:
 
@@ -106,4 +108,4 @@ Some dependencies include:
 |----------------|----------------|
 | `python3`      | `bash`         |
 | `python3-venv` | `rm` `ln`      |
-| `python3-pip`  | `pushd` `popd` |
+| `python3-pip`  |                |
